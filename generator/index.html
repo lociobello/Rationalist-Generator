@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rationalist Building Generator</title>
+<meta name="description" content="Rationalist Utopia — procedural generator of Italian rationalist buildings, 1928–1942.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--PAGE-->
+<div class="page">
+  <header class="bar top">
+    <p class="meta"><span>Rationalist Utopia</span><span id="plate"></span></p>
+    <h1 class="title">Rationalist Generator</h1>
+    <details id="export" class="export"></details>
+  </header>
+  <main id="viewport" class="viewport">
+    <canvas id="scene" aria-label="3D view of the building"></canvas>
+    <p id="loading" class="loading">Rationalist Utopia · loading</p>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <p id="nogl" class="nogl" hidden>This browser lacks WebGL 2, which the generator needs.</p>
+  </main>
+  <footer id="dock" class="bar bottom"></footer>
+</div>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+} }
+</script>
+<script>
+  (function () {
+    var c = document.createElement('canvas');
+    if (!c.getContext('webgl2')) document.getElementById('nogl').hidden = false;
+  })();
+</script>
+<script type="module" src="js/main.js"></script>
+<!--/PAGE-->
+</body>
+</html>
